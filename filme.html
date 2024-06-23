@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FichaSkills</title>
+  <script src="src/js/jquery.js"></script>
+  <script src="src/js/datatable.js"></script>
+  <script src="src/js/cinema.js"></script>
+  <script src="src/js/filme.js"></script>
+  <script src="src/js/sala.js"></script>
+  <script src="src/js/sweetalert.js"></script>
+  <script src="src/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="src/css/bootstrap.css">
+  <link rel="stylesheet" href="src/css/sweetalert.css">
+  <link rel="stylesheet" href="src/css/animate.css">
+  <link rel="stylesheet" href="src/css/datatable.css">
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+
+  <nav class="sidebar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">DASHBOARD</a>
+      <ul class="navbar-nav flex-column">
+       
+      
+        <li class="nav-item">
+          <a class="nav-link" href="cinema.html">Cinemas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sala.html">Salas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="filme.html">Filmes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sessao.html">Sessões</a>
+        </li>
+  
+   
+      </ul>
+   
+    </div>
+    </nav>
+
+
+
+  <div class="container">
+
+    <h1>Registar Filmes</h1>
+
+    <form class="row g-3">
+      <div class="col-md-12">
+        <label for="codFilme" class="form-label">Código Filme</label>
+        <input type="text" class="form-control" id="codFilme">
+      </div>
+
+    <div class="col-md-12">
+      <label for="nomeFilme" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nomeFilme">
+    </div>
+
+    <div class="col-md-12">
+      <label for="anoFilme" class="form-label">Ano</label>
+      <input type="date" class="form-control" id="anoFilme">
+    </div>
+
+    <div class="col-md-12">
+      <label for="descricaoFilme" class="form-label">Descrição</label>
+      <input type="text" class="form-control" id="descricaoFilme">
+    </div>
+
+    <div class="col-md-6">
+      <label for="tipoFilme" class="form-label">Tipo</label>
+     <select name="tipoFilme" id="tipoFilme">
+      <option value="-1">Sem Tipos</option>
+     </select>
+    </div>
+
+
+
+    <div class="col-12">
+      <button type="button" class="btn btn-primary" onclick="registarFilme()">Registar</button>
+    </div>
+    
+  </form>
+  </div>
+
+  <div class="container" id="tableFilmes">
+
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="modalEditFilme" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Filme</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <form class="row g-3">
+            <form class="row g-3">
+              <div class="col-md-12">
+                <label for="codFilmeEdit" class="form-label">Código Filme</label>
+                <input type="text" class="form-control" id="codFilmeEdit">
+              </div>
+        
+            <div class="col-md-12">
+              <label for="nomeFilmeEdit" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="nomeFilmeEdit">
+            </div>
+        
+            <div class="col-md-12">
+              <label for="anoFilmeEdit" class="form-label">Ano</label>
+              <input type="text" class="form-control" id="anoFilmeEdit">
+            </div>
+        
+            <div class="col-md-12">
+              <label for="descricaoFilmeEdit" class="form-label">Descrição</label>
+              <input type="text" class="form-control" id="descricaoFilmeEdit">
+            </div>
+        
+            <div class="col-md-6">
+              <label for="tipoFilmeEdit" class="form-label">Tipo</label>
+             <select name="tipoFilme" id="tipoFilmeEdit">
+              <option value="-1">Sem Tipos</option>
+             </select>
+            </div>
+  
+          
+        
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnGuardarEdit">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

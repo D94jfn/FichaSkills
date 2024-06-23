@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FichaSkills</title>
+  <script src="src/js/jquery.js"></script>
+  <script src="src/js/datatable.js"></script>
+  <script src="src/js/cinema.js"></script>
+  <script src="src/js/filme.js"></script>
+  <script src="src/js/sala.js"></script>
+  <script src="src/js/sessao.js"></script>
+  <script src="src/js/sweetalert.js"></script>
+  <script src="src/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="src/css/bootstrap.css">
+  <link rel="stylesheet" href="src/css/sweetalert.css">
+  <link rel="stylesheet" href="src/css/animate.css">
+  <link rel="stylesheet" href="src/css/datatable.css">
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+
+  <nav class="sidebar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">DASHBOARD</a>
+      <ul class="navbar-nav flex-column">
+       
+      
+        <li class="nav-item">
+          <a class="nav-link" href="cinema.html">Cinemas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sala.html">Salas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="filme.html">Filmes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sessao.html">Sessões</a>
+        </li>
+  
+   
+      </ul>
+   
+    </div>
+    </nav>
+
+
+
+  <div class="container">
+
+    <h1>Registar Sessões</h1>
+
+    <form class="row g-3">
+      <div class="col-md-12">
+        <label for="idSessao" class="form-label">ID Sessão</label>
+        <input type="number" class="form-control" id="idSessao">
+      </div>
+
+    <div class="col-md-12">
+      <label for="dataSessao" class="form-label">Data</label>
+      <input type="date" class="form-control" id="dataSessao">
+    </div>
+
+    <div class="col-md-12">
+      <label for="horaSessao" class="form-label">Hora</label>
+      <input type="datetime" class="form-control" id="horaSessao">
+    </div>
+
+
+    <div class="col-md-6">
+      <label for="estadoSessao" class="form-label">Estado</label>
+     <select name="estadoSessao" id="estadoSessao">
+      <option value="-1">Estado atual</option>
+      <option value="0">Ativa</option>
+      <option value="1">Inativa</option>
+     </select>
+    </div>
+
+    
+    <div class="col-md-6">
+      <label for="salaSessao" class="form-label">Sala</label>
+     <select name="salaSessao" id="salaSessao">
+      <option value="-1">Sem Salas Registadas</option>
+
+     </select>
+    </div>
+
+    <div class="col-md-6">
+      <label for="filmeSessao" class="form-label">Filme</label>
+     <select name="filmeSessao" id="filmeSessao">
+      <option value="-1">Sem Filmes Registados</option>
+
+     </select>
+    </div>
+  
+
+
+
+
+
+    <div class="col-12">
+      <button type="button" class="btn btn-primary" onclick="registarSessao()">Registar</button>
+    </div>
+    
+  </form>
+  </div>
+
+  <div class="container" id="tableSessoes">
+
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="modalEditSessao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Sessão</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <form class="row g-3">
+            <form class="row g-3">
+    
+              <form class="row g-3">
+                <div class="col-md-12">
+                  <label for="idSessaoEdit" class="form-label">ID Sessão</label>
+                  <input type="number" class="form-control" id="idSessaoEdit">
+                </div>
+          
+              <div class="col-md-12">
+                <label for="dataSessaoEdit" class="form-label">Data</label>
+                <input type="date" class="form-control" id="dataSessaoEdit">
+              </div>
+          
+              <div class="col-md-12">
+                <label for="horaSessaoEdit" class="form-label">Hora</label>
+                <input type="datetime" class="form-control" id="horaSessaoEdit">
+              </div>
+          
+        
+              <div class="col-md-6">
+                <label for="salaSessaoEdit" class="form-label">Sala</label>
+               <select name="salaSessaoEdit" id="salaSessaoEdit">
+                <option value="-1">Sem Salas Registadas</option>
+          
+               </select>
+              </div>
+          
+              <div class="col-md-6">
+                <label for="filmeSessaoEdit" class="form-label">Filme</label>
+               <select name="filmeSessaoEdit" id="filmeSessaoEdit">
+                <option value="-1">Sem Filmes Registados</option>
+          
+               </select>
+              </div>
+            
+          
+              <div class="col-md-6">
+                <label for="estadoSessaoEdit" class="form-label">Estado</label>
+               <select name="estadoSessaoEdit" id="estadoSessaoEdit">
+                <option value="-1">Estado atual</option>
+                <option value="0">Ativa</option>
+                <option value="1">Inativa</option>
+               </select>
+              </div>
+          
+        
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnGuardarEdit">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

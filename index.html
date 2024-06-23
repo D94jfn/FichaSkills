@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FichaSkills</title>
+  <script src="src/js/jquery.js"></script>
+  <script src="src/js/datatable.js"></script>
+  <script src="src/js/cinema.js"></script>
+  <script src="src/js/filme.js"></script>
+  <script src="src/js/sala.js"></script>
+  <script src="src/js/dashboard.js"></script>
+  <script src="src/js/sweetalert.js"></script>
+  <script src="src/js/bootstrap.js"></script>
+
+  <link rel="stylesheet" href="src/css/bootstrap.css">
+  <link rel="stylesheet" href="src/css/sweetalert.css">
+  <link rel="stylesheet" href="src/css/animate.css">
+  <link rel="stylesheet" href="src/css/datatable.css">
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+  
+
+  <nav class="sidebar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">DASHBOARD</a>
+      <ul class="navbar-nav flex-column">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="cinema.html">Cinemas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sala.html">Salas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="filme.html">Filmes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sessao.html">Sessões</a>
+        </li>
+  
+   
+      </ul>
+   
+    </div>
+    </nav>
+
+
+
+
+
+
+
+  <div class="container">
+
+
+    <h5>DASHBOARD</h5>
+
+    <div class="row">
+      <div class="col-sm-6">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">CINEMAS</h5>
+            <p class="card-text">Registados:</p>
+            <span id = "cinemasCount">exemplo</span>
+           
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">FILMES</h5>
+            <p class="card-text">Em Exibição:</p>
+            <span id = "filmesCount">exemplo</span>
+   
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div class="container">
+
+
+    <h5>FILTRO</h5>
+
+    <div class="row">
+      <div class="col-sm-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">CINEMAS</h5>
+            <div class="col-md-6">
+              <label for="cinemasFiltro" class="form-label" >Cinemas</label>
+             <select name="cinemasFiltro" id="cinemasFiltro" onchange="filtraCinema(this.value)">
+              <option value="-1">Sem Cinemas Registados</option>
+        
+             </select>
+            </div>
+          </div>
+
+          <div class="container" id="tableFilmesFiltro">
+        
+          </div>
+      
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+</body>
+
+</html>

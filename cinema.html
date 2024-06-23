@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FichaSkills</title>
+  <script src="src/js/jquery.js"></script>
+  <script src="src/js/datatable.js"></script>
+  <script src="src/js/cinema.js"></script>
+  <script src="src/js/filme.js"></script>
+  <script src="src/js/sala.js"></script>
+  <script src="src/js/sweetalert.js"></script>
+  <script src="src/js/bootstrap.js"></script>
+
+  <link rel="stylesheet" href="src/css/bootstrap.css">
+  <link rel="stylesheet" href="src/css/sweetalert.css">
+  <link rel="stylesheet" href="src/css/animate.css">
+  <link rel="stylesheet" href="src/css/datatable.css">
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+  
+
+  <nav class="sidebar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">DASHBOARD</a>
+      <ul class="navbar-nav flex-column">
+       
+      
+        <li class="nav-item">
+          <a class="nav-link" href="cinema.html">Cinemas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sala.html">Salas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="filme.html">Filmes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sessao.html">Sessões</a>
+        </li>
+  
+   
+      </ul>
+   
+    </div>
+    </nav>
+
+
+
+
+
+
+
+  <div class="container">
+
+    <h1>Registar cinema</h1>
+
+    <form class="row g-3">
+      <div class="col-md-12">
+        <label for="idCinema" class="form-label">ID</label>
+        <input type="text" class="form-control" id="idCinema">
+      </div>
+
+    <div class="col-md-12">
+      <label for="nomeCinema" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nomeCinema">
+    </div>
+
+    <div class="col-md-6">
+      <label for="cinemaLocal" class="form-label">Localização</label>
+     <select name="localCinema" id="cinemaLocal">
+      <option value="-1">Sem Localização</option>
+     </select>
+    </div>
+
+
+
+    <div class="col-12">
+      <button type="button" class="btn btn-primary" onclick="registarCinema()">Registar</button>
+    </div>
+    
+  </form>
+  </div>
+
+  <div class="container" id="tableCinemas">
+
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="modalEditCinema" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Cinema</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <form class="row g-3">
+            <div class="col-md-12">
+              <label for="idCinema" class="form-label">ID</label>
+              <input type="text" class="form-control" id="idCinemaEdit">
+            </div>
+      
+          <div class="col-md-12">
+            <label for="nomeCinema" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nomeCinemaEdit">
+          </div>
+      
+          <div class="col-md-6">
+            <label for="cinemaLocalEdit" class="form-label">Localização</label>
+           <select name="localCinemaEdit" id="cinemaLocalEdit">
+            <option value="-1">Sem Localização</option>
+           </select>
+          </div>
+  
+          
+        
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnGuardarEdit">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
