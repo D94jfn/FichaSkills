@@ -14,7 +14,7 @@ class Filme{
         
         $stmt = $conn->prepare("INSERT INTO filmes (codigo_filme, nome, ano, descricao , id_tipo) 
         VALUES (?, ?, ?,?,?);");
-        $stmt->bind_param("isisi", $codFilme, $nomeFilme, $anoFilme, $descricaoFilme , $tipoFilme);
+        $stmt->bind_param("isssi", $codFilme, $nomeFilme, $anoFilme, $descricaoFilme , $tipoFilme);
   
 
         $stmt->execute();
@@ -132,7 +132,7 @@ class Filme{
         $stmt = $conn->prepare("UPDATE filmes 
         SET codigo_filme = ?,  nome = ?,  ano = ?  , descricao = ? , id_tipo = ?
         WHERE codigo_filme = ? ;");
-        $stmt->bind_param("isisii", $codFilme, $nomeFilme, $anoFilme, $descricaoFilme, $tipoFilme , $codFilme);
+        $stmt->bind_param("isssii", $codFilme, $nomeFilme, $anoFilme, $descricaoFilme, $tipoFilme , $codFilme);
         $stmt->execute();
 
         $msg = "Editado com sucesso!";

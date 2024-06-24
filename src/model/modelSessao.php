@@ -14,7 +14,7 @@ class Sessao{
         
         $stmt = $conn->prepare("INSERT INTO sessoes (id_sessao, data_sessao, hora, estado , codigo_sala, codigo_filme) 
         VALUES (?, ?, ?, ?, ?, ?);");
-        $stmt->bind_param("iiiiii", $idSessao, $dataSessao, $horaSessao, $estadoSessao , $salaSessao, $filmeSessao);
+        $stmt->bind_param("issiii", $idSessao, $dataSessao, $horaSessao, $estadoSessao , $salaSessao, $filmeSessao);
   
 
         $stmt->execute();
@@ -60,12 +60,14 @@ class Sessao{
                 $msg .= "<tr>";
               
                 $msg .= "<th scope='row'>".$row['id_sessao']."</th>";
-                $msg .= "<td>".$row['codigo_sala']."</td>";
+                $msg .= "<td>".$row['data_sessao']."</td>";
                 $msg .= "<td>".$row['hora']."</td>";
                 if($row['estado'] == 1){
-                $msg .= "<td>".'Inativa'."</td>";}
+                $msg .= "<td>".'Inativa'."</td>";
+                }
                 else{
-                $msg .= "<td>".'Ativa'."</td>";}
+                $msg .= "<td>".'Ativa'."</td>";
+                }
                 $msg .= "<td>".$row['salaDesc']."</td>";
                 $msg .= "<td>".$row['fNome']."</td>";
    
@@ -223,7 +225,7 @@ class Sessao{
 
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()) {
-                $msg .= "<option value = '".$row['codigo_filme']."'>".$row['descricao']."</option>";
+                $msg .= "<option value = '".$row['codigo_filme']."'>".$row['nome']."</option>";
             }
         }else{
             $msg .= "<option value = '-1'>Sem Filmes registados</option>";
